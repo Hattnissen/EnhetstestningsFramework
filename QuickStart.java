@@ -1,5 +1,11 @@
-class QuickStart {
+import javax.swing.*;
+
+public class QuickStart {
     public static void main(String[] args) {
-        System.out.println("Hello, World.");
+
+        SwingUtilities.invokeLater(() -> {
+            Gui gui = new Gui("Tester");
+            gui.show();
+        });
     }
 }
