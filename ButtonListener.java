@@ -4,49 +4,71 @@ import java.awt.event.ActionListener;
 
 public class ButtonListener implements ActionListener
 {
-    private Test1 test;
-    private JTextArea textArea;
-
-    public ButtonListener(Test1 test, JTextArea textArea)
+    SwingWorkerView view;
+    public ButtonListener(SwingWorkerView view)
     {
-        this.test = test;
-        this.textArea = textArea;
+        this.view = view;
     }
 
     public void actionPerformed(ActionEvent event)
     {
-        test.setUp();
-        textArea.append("SetUp completed\n");
-        if(test.testInitialisation())
-        {
-            textArea.append("testInitialisation: SUCCESS\n");
-        }
-        if(test.testIncrement())
-        {
-            textArea.append("testIncrement: SUCCESS\n");
-        }
-        if(test.testDecrement())
-        {
-            textArea.append("testDecrement: SUCCESS\n");
-        }
-        try {
-            if (!test.testFailingByException()) {
-                textArea.append("FAIL Generated a Java.lang.NullPointerException\n");
+        view.textField.setText("\r");
+        /*
+        String text = textField.getText();
+
+        if(text == "Test1") {
+            //new Worker().execute();
+            Test1 test = new Test1();
+            int success = 0;
+            int fail = 0;
+            int failByException = 0;
+
+            test.setUp();
+            if (test.testInitialisation()) {
+                textArea.append("testInitialisation: SUCCESS\n");
+                success++;
             }
-            else
-            {
-                textArea.append("testFailingByException: SUCCESS\n");
+            test.tearDown();
+
+            test.setUp();
+            if (test.testIncrement()) {
+                textArea.append("testIncrement: SUCCESS\n");
+                success++;
             }
-        }
-        catch (NullPointerException exception)
-            {
-                textArea.append("FAIL Generated a Java.lang.NullPointerException\n");
+            test.tearDown();
+
+            test.setUp();
+            if (test.testDecrement()) {
+                textArea.append("testDecrement: SUCCESS\n");
+                success++;
+            }
+            test.tearDown();
+
+            test.setUp();
+            try {
+                if (test.testFailingByException()) {
+                    textArea.append("testFailingByException: SUCCESS\n");
+                } else {
+                    textArea.append("testFailingByException: FAIL\n");
+                }
+            } catch (NullPointerException exception) {
+                textArea.append("testFailingByException: FAIL Generated a Java.lang.NullPointerException\n");
+                failByException++;
+            } finally {
+                test.tearDown();
             }
 
-        if (!test.testFailing()) {
-            textArea.append("FAIL\n");
-        }
-        test.tearDown();
-        textArea.append("TearDown completed\n");
+            test.setUp();
+            if (!test.testFailing()) {
+                textArea.append("testFailing: FAIL\n");
+                fail++;
+            }
+            test.tearDown();
+
+            textArea.append("\n");
+            textArea.append(Integer.toString(success) + " tests succeeded\n");
+            textArea.append(Integer.toString(fail) + " tests failed\n");
+            textArea.append(Integer.toString(failByException) + " tests failed because of an exception\n");
+        }*/
     }
 }
