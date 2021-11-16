@@ -14,15 +14,17 @@ public class QuickStart
             JFrame frame = new JFrame("MyUnitTester");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-            frame.add(view.panel, BorderLayout.NORTH);
+            frame.add(view.topPanel, BorderLayout.NORTH);
             frame.add(view.textArea, BorderLayout.CENTER);
+            frame.add(view.bottomPanel, BorderLayout.SOUTH);
 
             frame.getContentPane();
             frame.pack();
 
             model.addListener(view);
             view.textField.addActionListener(controller);
-            view.runButton.addActionListener(new ButtonListener(view));
+            view.runButton.addActionListener(new RunButtonListener(view, model));
+            view.clearButton.addActionListener(new ClearButtonListener(view));
 
             frame.setVisible(true);
         }
