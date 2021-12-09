@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -92,26 +91,26 @@ public class SwingWorkerTask extends SwingWorker<Integer,Integer> {
                         }
                     }
                 } catch (NullPointerException e) {
-                    model.resultsMessages.add("FAIL Generated a " + e.getClass().getName() + "\n");
+                    model.resultsMessages.add(method.getName() + ": FAIL Generated a " + e.getCause() + "\n");
                     failByException++;
                 } catch (IllegalAccessException e) {
-                    model.resultsMessages.add("FAIL Generated a " + e.getClass().getName() + "\n");
+                    model.resultsMessages.add(method.getName() + ": FAIL Generated a " + e.getCause() + "\n");
                     failByException++;
                 } catch (InvocationTargetException e) {
-                    model.resultsMessages.add("FAIL Generated a " + e.getClass().getName() + "\n");
+                    model.resultsMessages.add(method.getName() + ": FAIL Generated a " + e.getCause() + "\n");
                     failByException++;
                 }
             }
         } catch (ClassNotFoundException e) {
-            model.resultsMessages.add("FAIL Generated a " + e.getClass().getName() + "\n");
+            model.resultsMessages.add("Generated a " + e.getCause() + "\n");
         } catch (NoSuchMethodException e) {
-            model.resultsMessages.add("FAIL Generated a " + e.getClass().getName() + "\n");
+            model.resultsMessages.add("Generated a " + e.getCause() + "\n");
         } catch (InstantiationException e) {
-            model.resultsMessages.add("FAIL Generated a " + e.getClass().getName() + "\n");
+            model.resultsMessages.add("Generated a " + e.getCause() + "\n");
         } catch (IllegalAccessException e) {
-            model.resultsMessages.add("FAIL Generated a " + e.getClass().getName() + "\n");
+            model.resultsMessages.add("Generated a " + e.getCause() + "\n");
         } catch (InvocationTargetException e) {
-            model.resultsMessages.add("FAIL Generated a " + e.getClass().getName() + "\n");
+            model.resultsMessages.add("Generated a " + e.getCause() + "\n");
         }
 
 

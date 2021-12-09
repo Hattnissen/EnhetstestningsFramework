@@ -55,7 +55,7 @@ public class SwingWorkerView extends JPanel implements ChangeListener
             }
         }
         else {
-            textArea.append("Summary of " + model.test + "\n");
+            textArea.append("Summary of " + model.test + ":\n");
             for (String resultMessage : model.resultsMessages) {
                 textArea.append(resultMessage);
                 System.out.println("Händer det här?");
